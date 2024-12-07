@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CardRiview(username: String="Rizkaa22", desk: String="Gimana komentarnya magang disana asik kah??", date: String="12-12-1212") {
+fun CardReview(username: String="Rizkaa22", desk: String="Gimana komentarnya magang disana asik kah??", date: String="12-12-1212") {
     Card(modifier = Modifier.padding(16.dp)
         .fillMaxWidth(),
         colors = CardDefaults.cardColors(Color(0xFFFFDE59)),
@@ -56,6 +56,6 @@ fun CardRiview(username: String="Rizkaa22", desk: String="Gimana komentarnya mag
 
 @Preview(showBackground = true)
 @Composable
-private fun CardRiviewPrev() {
-    CardRiview()
+private fun CardReviewPrev() {
+    CardReview()
 }

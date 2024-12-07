@@ -67,6 +67,7 @@ fun CardAction(modifier: Modifier = Modifier) {
                     style = TextStyle(
                         fontWeight = FontWeight.W500,
                         fontSize = 16.sp
+
                     )
                 )
             }

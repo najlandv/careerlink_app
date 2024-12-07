@@ -56,6 +56,6 @@ fun CardReview(username: String="Rizkaa22", desk: String="Gimana komentarnya mag
 
 @Preview(showBackground = true)
 @Composable
-private fun CardReviewPrev() {
+private fun CardRiviewPrev() {
     CardReview()
 }

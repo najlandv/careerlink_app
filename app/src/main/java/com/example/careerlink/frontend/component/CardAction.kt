@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.sp
 fun CardAction(title: String="Judul Besar", subtitle: String="Sub judul :", desk: String="Siapa namanya dimana rumahnya nama saya firman syahputra", date: String="12-12-1212"
 
                ) {
-    Card(modifier = Modifier.padding(16.dp)
+    Card(modifier = Modifier
         .fillMaxWidth(),
         colors = CardDefaults.cardColors(Color(0xFFFFDE59)),
     ) {
@@ -84,5 +84,10 @@ fun CardAction(title: String="Judul Besar", subtitle: String="Sub judul :", desk
 @Preview(showBackground = true)
 @Composable
 private fun CardActionPrev() {
-    CardAction()
+    CardAction(
+        title = TODO(),
+        subtitle = TODO(),
+        desk = TODO(),
+        date = TODO()
+    )
 }

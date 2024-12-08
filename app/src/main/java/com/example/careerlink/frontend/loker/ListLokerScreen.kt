@@ -50,7 +50,7 @@ fun ListLokerScreen(modifier: Modifier = Modifier) {
                 Spacer(modifier = Modifier.height(8.dp))
             }
             items(listLoker) { loker ->
-                CardAction(title = loker)
+                CardAction(title = loker, onEdit = {})
                 Spacer(modifier = Modifier.height(8.dp))
 
             }

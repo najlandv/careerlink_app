@@ -26,7 +26,7 @@ fun TopBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(colorResource(R.color.white))
+            .background(colorResource(R.color.cream))
             .padding(vertical = 12.dp, horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -41,7 +41,7 @@ fun TopBar(
         Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = text,
-            fontSize = 18.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.Black
         )

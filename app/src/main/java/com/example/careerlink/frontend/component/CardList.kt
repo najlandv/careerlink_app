@@ -64,5 +64,5 @@ fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :"
 @Preview(showBackground = true)
 @Composable
 private fun CardListPrev() {
-    CardList(onClick = {})
+    CardList()
 }

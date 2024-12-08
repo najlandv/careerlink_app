@@ -1,5 +1,6 @@
 package com.example.careerlink.frontend.component
 
+import android.service.autofill.OnClickAction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,8 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :", desk: String="Deksripsi Magang yang akan dilakukan selama prosesnya", date: String="12-12-1212") {
-    Card(modifier = Modifier
+fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :", desk: String="Deksripsi Magang yang akan dilakukan selama prosesnya", date: String="12-12-1212", onClick :() -> Unit = {}) {
+    Card(modifier = Modifier.padding(16.dp)
         .fillMaxWidth(),
         colors = CardDefaults.cardColors(Color(0xFFFFDE59)),
     ) {

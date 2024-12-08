@@ -1,6 +1,7 @@
 package com.example.careerlink.frontend.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -19,35 +20,35 @@ import com.example.careerlink.R
 @Composable
 fun TopBar(
     text: String,
-    modifier: Modifier = Modifier) {
+    modifier: Modifier = Modifier,
+    onBackClick: () -> Unit = {}
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(colorResource(R.color.white))
-            .height(36.dp),
-
+            .padding(vertical = 12.dp, horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-
         Icon(
-            painter = painterResource(id = R.drawable.baseline_arrow_back_24), // Ganti dengan resource Anda
+            painter = painterResource(id = R.drawable.baseline_arrow_back_24),
             contentDescription = "Back",
             tint = Color.Black,
             modifier = Modifier
-                .size(24.dp)
-                .padding(start = 8.dp)
+                .size(28.dp)
+                .clickable { onBackClick() }
         )
-        Spacer(modifier=Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = text,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold,
             color = Color.Black
         )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun TopBarPrev() {
     TopBar(

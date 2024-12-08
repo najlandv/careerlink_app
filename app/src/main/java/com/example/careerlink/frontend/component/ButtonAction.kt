@@ -19,7 +19,7 @@ fun ButtonAction(
     backgroundColor: Color,
     textColor: Color,
     @SuppressLint("ModifierParameter") modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         modifier = Modifier,
@@ -28,7 +28,7 @@ fun ButtonAction(
             containerColor = backgroundColor,
             contentColor = textColor
         ),
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(24.dp),
     ) {
         Text(text = text, color = textColor)
     }

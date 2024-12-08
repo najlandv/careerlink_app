@@ -3,32 +3,38 @@ package com.example.careerlink.frontend.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import com.example.careerlink.R
 
 @Composable
-fun CardPopUp(modifier: Modifier = Modifier) {
+fun CardPopUp(
+    onConfirm: () -> Unit,
+    onCancel: () -> Unit
+) {
     Card(
-        shape = RoundedCornerShape(16.dp),
-        modifier = modifier
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier
             .padding(16.dp)
-            .border(2.dp, colorResource(id = R.color.main_yellow), RoundedCornerShape(16.dp)),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White
-        )
+            .fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Column(
             modifier = Modifier
@@ -55,9 +61,11 @@ fun CardPopUp(modifier: Modifier = Modifier) {
 
             Text(
                 text = "Apakah kamu yakin ingin menghapus data ini?",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color.Black,
+                style = TextStyle(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp,
+                    color = Color.Black
+                ),
                 textAlign = TextAlign.Center
             )
 
@@ -67,33 +75,24 @@ fun CardPopUp(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                ButtonAction(
-                    onClick={},
-                    text = "Hapus",
-                    backgroundColor = colorResource(id = R.color.button_blue),
-                    textColor = colorResource(id = R.color.white),
-                    modifier = Modifier.weight(1f)
-                )
+                Button(
+                    onClick = { onConfirm() },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                ) {
+                    Text(text = "Hapus", color = Color.White, fontWeight = FontWeight.Bold)
+                }
 
                 Spacer(modifier = Modifier.width(8.dp))
 
                 OutlinedButton(
-                    onClick = { },
+                    onClick = { onCancel() },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = colorResource(R.color.button_blue)
-                    ),
-                    shape = RoundedCornerShape(8.dp),
-                    border = BorderStroke(1.dp, colorResource(R.color.button_blue))
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "Batalkan", fontWeight = FontWeight.Bold)
                 }
             }
         }
     }
-}
-
-@Preview
-@Composable
-private fun CardPopUpPrev() {
-    CardPopUp()
 }

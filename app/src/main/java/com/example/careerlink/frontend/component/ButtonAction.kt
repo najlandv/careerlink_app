@@ -16,8 +16,8 @@ import com.example.careerlink.R
 @Composable
 fun ButtonAction(
     text: String,
-    backgroundColor: Color,
-    textColor: Color,
+    backgroundColor: Color = colorResource(id = R.color.button_blue),
+    textColor: Color = colorResource(id = R.color.white),
     @SuppressLint("ModifierParameter") modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {

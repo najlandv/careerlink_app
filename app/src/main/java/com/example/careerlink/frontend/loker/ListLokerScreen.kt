@@ -20,6 +20,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.careerlink.frontend.component.BottomBar
+import com.example.careerlink.frontend.component.ButtonAction
 import com.example.careerlink.frontend.component.CardAction
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -34,23 +36,18 @@ fun ListLokerScreen(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = Modifier.padding(top = 64.dp),
         topBar = {
-            Row {
-                Icon(Icons.Default.ArrowBack, contentDescription = "back")
-                Text("LOWONGAN KERJA")
-            }
+
+        },
+        bottomBar = {
+            BottomBar()
         }
     ) { paddingValues ->
         LazyColumn(
             modifier = modifier.padding(16.dp)
         ) {
             item {
-                Button(
-                    onClick = { /* Tambahkan logika untuk tambah postingan */ },
-                    modifier = Modifier
-                ) {
-                    Text("Tambah Postingan")
-                }
-                Spacer(modifier = Modifier.height(16.dp))
+                ButtonAction(text = "Tambah Postingan") { }
+                Spacer(modifier = Modifier.height(8.dp))
             }
             items(listLoker) { loker ->
                 CardAction(title = loker)

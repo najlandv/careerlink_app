@@ -62,9 +62,11 @@ fun ListSertifikasiScreen(
                     subtitle = "Deskripsi:",
                     desk = sertifikasi.description,
                     date = sertifikasi.date,
-                    onEdit = { },
+                    onEdit = { onEditSertifikasi(sertifikasi) },
                     onDeleteConfirmed = {
-                        sertifikasiList = sertifikasiList.filterNot { it == sertifikasi }
+                        sertifikasiList = sertifikasiList.toMutableList().apply {
+                            remove(sertifikasi)
+                        }
                     }
                 )
             }

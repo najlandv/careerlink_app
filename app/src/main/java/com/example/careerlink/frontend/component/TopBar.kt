@@ -26,7 +26,7 @@ fun TopBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(colorResource(R.color.white))
+            .background(colorResource(R.color.cream))
             .padding(vertical = 12.dp, horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

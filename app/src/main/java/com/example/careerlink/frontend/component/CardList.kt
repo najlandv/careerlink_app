@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :", desk: String="Deksripsi Magang yang akan dilakukan selama prosesnya", date: String="12-12-1212") {
-    Card(modifier = Modifier.padding(16.dp)
+    Card(modifier = Modifier
         .fillMaxWidth(),
         colors = CardDefaults.cardColors(Color(0xFFFFDE59)),
     ) {

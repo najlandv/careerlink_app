@@ -2,9 +2,7 @@ package com.example.careerlink.frontend.magang
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import com.example.careerlink.R
 import com.example.careerlink.frontend.component.TopBar
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailMagangScreen(
     modifier: Modifier = Modifier,
@@ -26,83 +25,95 @@ fun DetailMagangScreen(
     magangDescription: String,
     magangDate: String,
     magangImage: Int = R.drawable.ic_launcher_background, // Replace with your image resource
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onReviewClick: () -> Unit
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        TopBar(
-            text = "Detail Magang",
-            onBackClick = { onBack() }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Text(
-                text = magangDate,
-                fontSize = 14.sp,
-                color = Color.Black,
-                fontWeight = FontWeight.Light
+    Scaffold(
+        topBar = {
+            TopBar(
+                text = "Detail Magang",
+                onBackClick = onBack
             )
-
-            Text(
-                text = magangTitle,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                color = colorResource(R.color.button_blue)
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-
-            Text(
-                text = "Deskripsi Magang:",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = Color.Black
-            )
-            Text(
-                text = magangDescription,
-                fontSize = 14.sp,
-                color = Color.Black
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Image(
-                painter = painterResource(id = magangImage),
-                contentDescription = "Sertifikasi Image",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                contentScale = ContentScale.Crop
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(
-                onClick = { },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp),
-                colors = ButtonDefaults.buttonColors(colorResource(R.color.button_blue))
+        },
+        content = { paddingValues ->
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(16.dp)
             ) {
-                Text(
-                    text = "Review",
-                    fontSize = 16.sp,
-                    color = Color.White,
-                    textAlign = TextAlign.Center
-                )
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    // Tanggal Magang
+                    Text(
+                        text = magangDate,
+                        fontSize = 14.sp,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Light
+                    )
+
+                    // Judul Magang
+                    Text(
+                        text = magangTitle,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(R.color.button_blue)
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Deskripsi
+                    Text(
+                        text = "Deskripsi Magang:",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.Black
+                    )
+                    Text(
+                        text = magangDescription,
+                        fontSize = 14.sp,
+                        color = Color.Black
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Gambar Magang
+                    Image(
+                        painter = painterResource(id = magangImage),
+                        contentDescription = "Magang Image",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp),
+                        contentScale = ContentScale.Crop
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Tombol Review
+                    Button(
+                        onClick = { onReviewClick() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        colors = ButtonDefaults.buttonColors(colorResource(R.color.button_blue))
+                    ) {
+                        Text(
+                            text = "Review",
+                            fontSize = 16.sp,
+                            color = Color.White,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
             }
         }
-    }
+    )
 }
 
 @Preview(showBackground = true)
@@ -110,9 +121,10 @@ fun DetailMagangScreen(
 fun DetailMagangScreenPreview() {
     DetailMagangScreen(
         magangTitle = "Front End Developer",
-        magangDescription = "job desc: membuat tampilan frontend yang sesuai dengan desain. dengan masa magang 5 bulan",
+        magangDescription = "Job desc: membuat tampilan frontend yang sesuai dengan desain, masa magang 5 bulan.",
         magangDate = "2024-01-07",
         magangImage = R.drawable.ic_launcher_background,
-        onBack = {}
+        onBack = {},
+        onReviewClick = {}
     )
 }

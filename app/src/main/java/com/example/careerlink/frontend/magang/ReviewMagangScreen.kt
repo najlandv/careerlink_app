@@ -21,6 +21,7 @@ data class ReviewMagangData(
     val date: String
 )
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReviewMagangScreen(modifier: Modifier = Modifier) {
     var reviewList by remember {
@@ -47,68 +48,73 @@ fun ReviewMagangScreen(modifier: Modifier = Modifier) {
 
     var newComment by remember { mutableStateOf(TextFieldValue()) }
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        TopBar(
-            text = "Review Magang",
-            onBackClick = { }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        LazyColumn(
-            modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(reviewList) { review ->
-                CardReview(
-                    username = review.username,
-                    desk = review.description,
-                    date = review.date
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextField(
-                value = newComment,
-                onValueChange = { newComment = it },
-                modifier = Modifier.weight(1f),
-                placeholder = { Text("Tulis komentar Anda...") },
+    Scaffold(
+        topBar = {
+            TopBar(
+                text = "Review Magang",
+                onBackClick = { /* Tambahkan aksi kembali jika diperlukan */ }
             )
-
-            Spacer(modifier = Modifier.width(8.dp))
-
-            Button(
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(id = R.color.button_blue),
-                    contentColor = colorResource(id = R.color.white)
-                ),
-                onClick = {
-                    if (newComment.text.isNotBlank()) {
-                        reviewList = reviewList + ReviewMagangData(
-                            username = "User Baru",
-                            description = newComment.text,
-                            date = "2024-12-08"
+        },
+        content = { paddingValues ->
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(horizontal = 16.dp)
+            ) {
+                LazyColumn(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                ) {
+                    items(reviewList) { review ->
+                        CardReview(
+                            username = review.username,
+                            desk = review.description,
+                            date = review.date
                         )
-                        newComment = TextFieldValue()
                     }
                 }
-            ) {
-                Text("Kirim")
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    TextField(
+                        value = newComment,
+                        onValueChange = { newComment = it },
+                        modifier = Modifier.weight(1f),
+                        placeholder = { Text("Tulis komentar Anda...") },
+                        colors = TextFieldDefaults.textFieldColors(
+                            containerColor = colorResource(id = R.color.cream)
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    Button(
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.button_blue),
+                            contentColor = colorResource(id = R.color.white)
+                        ),
+                        onClick = {
+                            if (newComment.text.isNotBlank()) {
+                                reviewList = reviewList + ReviewMagangData(
+                                    username = "User Baru",
+                                    description = newComment.text,
+                                    date = "2024-12-08"
+                                )
+                                newComment = TextFieldValue()
+                            }
+                        }
+                    ) {
+                        Text("Kirim")
+                    }
+                }
             }
         }
-    }
+    )
 }
 
 @Preview(showBackground = true)

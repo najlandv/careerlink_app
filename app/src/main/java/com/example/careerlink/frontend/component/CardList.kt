@@ -35,7 +35,7 @@ fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :"
                         color = Color.White
                         )
                 )
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(subtitle,
                     style = TextStyle(
                         fontWeight = FontWeight.W500,
@@ -50,7 +50,7 @@ fun CardList(title: String="PT SEMEN PADANG", subtitle: String="Posisi Magang :"
                     )
                 )
             }
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(date,
                 style = TextStyle(

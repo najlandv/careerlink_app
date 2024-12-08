@@ -73,7 +73,7 @@ data class Loker(
     val date: String
 )
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true,)
 @Composable
 private fun ListLokerPrev() {
     ListLokerScreen()

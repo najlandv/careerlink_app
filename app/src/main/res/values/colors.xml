@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_yellow">#FFFFDE59</color>
     <color name="button_yellow">#FFFFCB65</color>
+    <color name="button_yellow_selected">#FFFFB82E</color>
     <color name="button_blue">#FF004AAD</color>
     <color name="cream" >#FFF0EEE4</color>
 </resources>

@@ -41,7 +41,7 @@ fun TopBar(
         Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = text,
-            fontSize = 18.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.Black
         )

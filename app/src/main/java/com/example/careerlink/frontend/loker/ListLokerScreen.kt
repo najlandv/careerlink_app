@@ -49,6 +49,10 @@ fun ListLokerScreen(modifier: Modifier = Modifier) {
                 .padding(paddingValues)
                 .padding(horizontal = 16.dp)
         ) {
+            item {
+                Spacer(modifier = Modifier.height(8.dp))
+
+            }
             items(listLoker) { loker ->
                 CardList(
                     title = loker.title,

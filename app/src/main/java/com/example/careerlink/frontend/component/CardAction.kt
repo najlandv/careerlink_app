@@ -24,7 +24,7 @@ fun CardAction(
     desk: String = "Deskripsi detail di sini...",
     onEdit: () -> Unit,
     date: String = "12-12-1212",
-    onDeleteConfirmed: () -> Unit = {}
+    onDeleteConfirmed: () -> Unit 
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
@@ -113,5 +113,12 @@ fun CardAction(
 @Preview
 @Composable
 private fun CardActionPrev() {
-    CardAction(onEdit = {})
+    CardAction(
+        onEdit = {},
+        title = TODO(),
+        subtitle = TODO(),
+        desk = TODO(),
+        date = TODO(),
+        onDeleteConfirmed = TODO()
+    )
 }

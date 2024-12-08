@@ -61,7 +61,7 @@ fun ListPostMagangSayaScreen(
                     date = magang.date,
                     onEdit = { onEditMagang(magang) },
                     onDeleteConfirmed = {
-                        magangList = magangList.filterNot { it == magang }
+                        magangList = magangList.toMutableList().also { it.remove(magang) }
                     }
                 )
             }

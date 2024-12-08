@@ -1,8 +1,6 @@
 package com.example.careerlink.frontend.component
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -18,9 +16,10 @@ import com.example.careerlink.R
 @Composable
 fun ButtonMenu(
    text: String,
-   backgroundColor: Color,
-   textColor: Color,
-   @SuppressLint("ModifierParameter") modifier: Modifier = Modifier
+   backgroundColor: Color = colorResource(R.color.button_yellow),
+   textColor: Color = colorResource(R.color.white),
+   @SuppressLint("ModifierParameter") modifier: Modifier = Modifier,
+   onClick: () -> Unit
 ) {
    Button(
       onClick = {},
@@ -39,7 +38,8 @@ fun ButtonMenu(
 private fun ButtonMenuPrev() {
    ButtonMenu(
       text = "Magang",
-      backgroundColor = colorResource(R.color.button_yellow) ,
+      backgroundColor = colorResource(R.color.button_yellow),
       textColor = colorResource(R.color.white),
+      onClick = {  },
    )
 }
